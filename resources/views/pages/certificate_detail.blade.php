@@ -14,18 +14,14 @@
             <h3 class="text-xl font-semibold mb-2">Oryginalny Dokument</h3>
             @if ($certificate['original_file_type'] === 'image')
                 <img src="{{ asset($certificate['original_file_path']) }}" alt="Oryginał - {{ $certificate['title_pl'] }}" class="w-full h-auto rounded shadow">
-            @elseif ($certificate['original_file_type'] === 'pdf')
-                <a href="{{ asset($certificate['original_file_path']) }}" target="_blank" class="text-blue-600 hover:underline">Zobacz oryginał (PDF)</a>
             @endif
         </div>
 
         <div>
-            <h3 class="text-xl font-semibold mb-2">Dokument Przetłumaczony (PL)</h3>
-            @if ($certificate['translated_file_type'] === 'image')
-                <img src="{{ asset($certificate['translated_file_path']) }}" alt="Tłumaczenie PL - {{ $certificate['title_pl'] }}" class="w-full h-auto rounded shadow">
-            @elseif ($certificate['translated_file_type'] === 'pdf')
-                <a href="{{ asset($certificate['translated_file_path']) }}" target="_blank" class="text-blue-600 hover:underline">Zobacz tłumaczenie (PDF)</a>
-            @endif
+            <h3 class="text-xl font-semibold mb-2">Tłumaczenie (PL)</h3>
+            @isset($certificate['translation_pl'])
+                <p class="text-gray-700">{{ $certificate['translation_pl'] }}</p>
+            @endisset
         </div>
     </div>
 
