@@ -28,7 +28,6 @@ services:
       - jana-manicure-app_network
     depends_on:
       - db
-      - redis
 
   # Web Server (Nginx)
   webserver:
@@ -37,7 +36,7 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "${APP_PORT:-8000}:80" # Expose app port from .env or default 8000
+      - "${APP_PORT:-8081}:80" # Expose app port from .env or default 8081
     volumes:
       - ./:/var/www/html
       - ./docker/nginx/conf.d/:/etc/nginx/conf.d/ # Mount custom Nginx config
@@ -71,22 +70,7 @@ services:
       timeout: 5s
       retries: 5
 
-  # Cache Server (Redis)
-  redis:
-    image: redis:7-alpine
-    container_name: jana-manicure-app_redis
-    restart: unless-stopped
-    ports:
-      - "${REDIS_PORT:-6379}:6379" # Expose Redis port from .env or default 6379
-    volumes:
-      - jana-manicure-redis_data:/data # Persistent Redis data
-    networks:
-      - jana-manicure-app_network
-    healthcheck: # Basic healthcheck
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+
 
 # Define Networks
 networks:
@@ -96,6 +80,4 @@ networks:
 # Define Volumes
 volumes:
   jana-manicure-app_db_data:
-    driver: local
-  jana-manicure-redis_data:
     driver: local

@@ -5,9 +5,15 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
+            input: ['resources/css/app.css', 'resources/js/app.js', 'resources/scss/nails.scss'],
             refresh: true,
         }),
         tailwindcss(),
     ],
+    server: {
+        host: '0.0.0.0', // Listen on all network interfaces
+        hmr: {
+          host: 'localhost', // Tell the HMR client to connect to localhost
+        }
+    }
 });
