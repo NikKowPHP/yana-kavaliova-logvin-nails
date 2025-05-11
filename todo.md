@@ -6,7 +6,7 @@
 *   Backend: Laravel
 *   Frontend: Blade Templates, Tailwind CSS
 *   Database: None for MVP (hardcoded data)
-*   Deployment: Docker (already initiated for dev)
+*   Deployment: Local PHP server (`php artisan serve`)
 
 **AI Implementation Notes:** This plan is designed for an AI (@cline) to implement. Steps should be clear, atomic, and verifiable.
 
@@ -14,9 +14,9 @@
 
 ## Phase 1: Project Setup & Initial Configuration
 
-*   [ ] **1.1. Verify Laravel Installation & Docker Setup:**
-    *   [ ] Ensure `docker-compose up -d` brings up the Laravel application and database (though DB not used for MVP data).
-    *   [ ] Confirm the Laravel welcome page is accessible in the browser.
+*   [x] **1.1. Verify Laravel Installation & Local Server Setup:**
+    *   [x] Ensure `php artisan serve` starts the Laravel development server.
+    *   [x] Confirm the Laravel welcome page is accessible in the browser.
 *   [x] **1.2. Install and Configure Tailwind CSS:**
     *   [x] Install Tailwind CSS, PostCSS, and Autoprefixer via npm: `npm install -D tailwindcss postcss autoprefixer`
     *   [x] Initialize Tailwind CSS: `npx tailwindcss init -p` (creates `tailwind.config.js` and `postcss.config.js`).
@@ -36,7 +36,7 @@
           plugins: [],
         }
         ```
-    *   [ ] Add Tailwind directives to `resources/css/app.css`:
+    *   [x] Add Tailwind directives to `resources/css/app.css`:
         ```css
         @tailwind base;
         @tailwind components;
