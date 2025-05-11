@@ -7,7 +7,7 @@ return [
             'description_pl' => 'Certyfikat ukończenia kursu.',
             'original_file_path' => 'assets/certificates/originals/manicure_scan_1.jpg',
             'original_file_type' => 'image',
-            'thumbnail_image_path' => 'assets/certificates/thumbnails/manicure_scan_1_thumb.jpg',
+            'thumbnail_image_path' => 'assets/certificates/originals/manicure_scan_1.jpg',
             'translation_pl' => 'Certyfikat
 potwierdza, że
 Kovalowa-Łogwin Jana Nikołajewna
@@ -24,7 +24,7 @@ Wykładowca Kirsanowa S.W.
             'description_pl' => 'Karta Licencyjna Smart Pedicure.',
             'original_file_path' => 'assets/certificates/originals/manicure_scan_6.jpg',
             'original_file_type' => 'image',
-            'thumbnail_image_path' => 'assets/certificates/thumbnails/manicure_scan_6_thumb.jpg',
+            'thumbnail_image_path' => 'assets/certificates/originals/manicure_scan_6.jpg',
             'translation_pl' => 'Karta Licencyjna
 IMIĘ I NAZWISKO: Kowalowa-Łogwin Jana Nikołajewna
 Numer licencji: WU - 17057 - 0224-81-7
@@ -44,7 +44,7 @@ Data: 27.02.2024
             'description_pl' => 'Certyfikat ukończenia kursu.',
             'original_file_path' => 'assets/certificates/originals/manicure_scan_2.jpg',
             'original_file_type' => 'image',
-            'thumbnail_image_path' => 'assets/certificates/thumbnails/manicure_scan_2_thumb.jpg',
+            'thumbnail_image_path' => 'assets/certificates/originals/manicure_scan_2.jpg',
             'translation_pl' => 'Certyfikat
 o ukończeniu kursu autorskiego
 Kowaliowa-Łogwin [Imię - Handwritten, likely Yana]
@@ -63,7 +63,7 @@ www.smart-pilka.ru
             'description_pl' => 'Certyfikat ukończenia kursu.',
             'original_file_path' => 'assets/certificates/originals/manicure_scan_3.jpg',
             'original_file_type' => 'image',
-            'thumbnail_image_path' => 'assets/certificates/thumbnails/manicure_scan_3_thumb.jpg',
+            'thumbnail_image_path' => 'assets/certificates/originals/manicure_scan_3.jpg',
             'translation_pl' => 'Certyfikat
 BEZ PRAWA NAUCZANIA
 KOMU: Kowaliowa - Łogwin Yana
@@ -80,7 +80,7 @@ NOVA
             'description_pl' => 'Certyfikat ukończenia kursu.',
             'original_file_path' => 'assets/certificates/originals/manicure_scan_4.jpg',
             'original_file_type' => 'image',
-            'thumbnail_image_path' => 'assets/certificates/thumbnails/manicure_scan_4_thumb.jpg',
+            'thumbnail_image_path' => 'assets/certificates/originals/manicure_scan_4.jpg',
             'translation_pl' => 'Certyfikat
 BEZ PRAWA NAUCZANIA
 KOMU: Kowaliowa - Łogwin [Imię - Handwritten, likely Yana]
@@ -97,7 +97,7 @@ NOVA
             'description_pl' => 'Certyfikat ukończenia kursu.',
             'original_file_path' => 'assets/certificates/originals/manicure_scan_5.jpg',
             'original_file_type' => 'image',
-            'thumbnail_image_path' => 'assets/certificates/thumbnails/manicure_scan_5_thumb.jpg',
+            'thumbnail_image_path' => 'assets/certificates/originals/manicure_scan_5.jpg',
             'translation_pl' => 'Certyfikat
 BEZ PRAWA NAUCZANIA
 KOMU: Kowaliowa - Łogwin [Imię - Handwritten, likely Yana]
