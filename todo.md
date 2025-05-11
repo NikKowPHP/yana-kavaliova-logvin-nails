@@ -139,8 +139,24 @@
     *   [ ] Basic header with site title/name: "Yana Kavaliova-Logvin - Certyfikaty Manicure i Pedicure".
     *   [ ] Basic footer.
     *   [ ] Ensure Polish language is set (`<html lang="pl">`).
-*   [ ] **3.2. Basic Styling for Layout:**
-    *   [ ] Apply simple Tailwind CSS classes for overall page structure, fonts, and colors.
+*   [ ] **3.2. Implement Core Styling with Tailwind CSS (iOS Sleek Design):**
+    *   [ ] **Typography:**
+        *   [ ] Configure Tailwind to use a system font stack (e.g., `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`).
+        *   [ ] Define appropriate font weights (e.g., regular, medium, semibold).
+        *   [ ] Establish a clear typographic hierarchy for headings and body text.
+    *   [ ] **Color Palette:**
+        *   [ ] Define a subtle and muted color palette in `tailwind.config.js`, including light and dark mode variations.
+        *   [ ] Use neutral tones (grays, whites, blacks) as primary colors, with minimal accent colors.
+    *   [ ] **Spacing and Layout:**
+        *   [ ] Apply consistent padding and margin using Tailwind's spacing scale.
+        *   [ ] Utilize flexbox and grid for clean and organized layouts.
+        *   [ ] Ensure ample whitespace for a minimalist feel.
+    *   [ ] **Borders and Shadows:**
+        *   [ ] Use subtle borders (thin lines, light colors) for separation.
+        *   [ ] Apply soft, diffused box shadows for depth, avoiding harsh or strong shadows.
+    *   [ ] **Overall Page Styling:**
+        *   [ ] Apply background and text colors from the defined palette to the body.
+        *   [ ] Style the header and footer with appropriate background, text color, and padding.
 
 ## Phase 4: Landing Page Development
 
@@ -151,7 +167,6 @@
     *   [ ] Grid or list to display certificate thumbnails and titles.
     *   [ ] Each certificate thumbnail/title should link to its individual certificate page using `route('certificate.show', ['id' => $certificate['id']])`.
 *   [ ] **4.2. Create `CertificateController` and Landing Page Method:**
-    *   [ ] Create `app/Http/Controllers/CertificateController.php`: `php artisan make:controller CertificateController`
     *   [ ] In `CertificateController.php`, add a method `index()`.
     *   [ ] This method should load certificate data: `$certificates = config('certificates.certificates');`.
     *   [ ] Pass the certificate data to the `pages.landing` view: `return view('pages.landing', compact('certificates'));`.
@@ -162,10 +177,15 @@
 
         Route::get('/', [CertificateController::class, 'index'])->name('landing');
         ```
-*   [ ] **4.4. Style Landing Page with Tailwind CSS:**
-    *   [ ] Style the introduction section.
-    *   [ ] Style the certificate grid/list (e.g., using Tailwind's grid or flexbox utilities).
-    *   [ ] Ensure responsiveness.
+*   [ ] **4.4. Style Landing Page with Tailwind CSS (iOS Sleek Design):**
+    *   [ ] Style the introduction section with appropriate typography and spacing.
+    *   [ ] Style the certificate grid/list with consistent spacing and alignment.
+    *   [ ] **Certificate Thumbnail Styling:**
+        *   [ ] Apply subtle borders and soft shadows to thumbnail containers.
+        *   [ ] Ensure consistent aspect ratios for thumbnails.
+        *   [ ] Style the certificate titles with appropriate font size and weight.
+        *   [ ] Add hover effects (e.g., subtle scale or background change) for interactivity.
+    *   [ ] Ensure responsiveness with breakpoints.
 
 ## Phase 5: Certificate Detail Page Development
 
@@ -198,10 +218,15 @@
         ```php
         Route::get('/certyfikat/{id}', [CertificateController::class, 'show'])->name('certificate.show');
         ```
-*   [ ] **5.4. Style Certificate Detail Page with Tailwind CSS:**
-    *   [ ] Style the display of titles, descriptions.
+*   [ ] **5.4. Style Certificate Detail Page with Tailwind CSS (iOS Sleek Design):**
+    *   [ ] Style the display of titles and descriptions with consistent typography and spacing.
     *   [ ] Style the sections for original and translated documents.
-    *   [ ] Ensure images are responsive and PDFs are clearly linked/displayed.
+    *   [ ] **Document Display Styling:**
+        *   [ ] Apply subtle borders and soft shadows to image containers or PDF link areas.
+        *   [ ] Ensure images are responsive and maintain aspect ratio.
+        *   [ ] Style PDF links as clear, tappable elements (e.g., using button-like styles or clear text links with icons).
+    *   [ ] Style the "Powrót do strony głównej" link to fit the overall design.
+    *   [ ] Ensure responsiveness.
 
 ## Phase 6: Asset Handling and URLs
 
@@ -229,13 +254,13 @@
 
 *   [ ] **8.1. Manual Testing:**
     *   [ ] Open landing page:
-        *   Verify all certificate thumbnails and titles are displayed.
-        *   Verify links to certificate detail pages are correct and use the defined slugs.
+        *   [ ] Verify all certificate thumbnails and titles are displayed.
+        *   [ ] Verify links to certificate detail pages are correct and use the defined slugs.
     *   [ ] Open each certificate detail page via its URL:
-        *   Verify correct title and description are shown.
-        *   Verify original document (image/PDF link) works.
-        *   Verify translated document (image/PDF link) works.
-        *   Verify "Back to Home" link works.
+        *   [ ] Verify correct title and description are shown.
+        *   [ ] Verify original document (image/PDF link) works.
+        *   [ ] Verify translated document (image/PDF link) works.
+        *   [ ] Verify "Back to Home" link works.
     *   [ ] Check for broken links or missing images/PDFs (404 errors).
     *   [ ] Test responsiveness on different screen sizes (basic check using browser dev tools).
 *   [ ] **8.2. Code Review (Self-Review for AI):**
