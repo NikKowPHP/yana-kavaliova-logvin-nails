@@ -3,19 +3,32 @@
 @section('title', 'Strona Główna - Yana Kavaliova-Logvin')
 
 @section('content')
-    <h2 class="text-xl font-semibold mb-4">O Yanie Kavaliova-Logvin</h2>
-    <p class="mb-8">Tutaj będzie krótki opis o Yanie Kavaliova-Logvin i jej doświadczeniu w manicure i pedicure.</p>
-
-    <h2 class="text-xl font-semibold mb-4">Certyfikaty</h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        @foreach ($certificates as $certificate)
-            <div class="bg-gray-100 p-3 rounded shadow">
-                <a href="{{ route('certificate.show', ['id' => $certificate['id']]) }}">
-                    <img src="{{ asset($certificate['original_file_path']) }}" alt="{{ $certificate['title_pl'] }}" class="w-full h-36 object-cover rounded mb-2">
-                    <h3 class="text-base font-semibold text-gray-800">{{ $certificate['title_pl'] }}</h3>
-                </a>
-            </div>
-        @endforeach
+    <div class="text-center mb-12">
+        <h1 class="text-3xl sm:text-4xl font-bold text-apple-gray-900 mb-4">Witaj na mojej stronie!</h1>
+        <p class="text-lg text-apple-gray-600 max-w-2xl mx-auto">
+            Nazywam się Yana Kavaliova-Logvin. Poniżej znajdziesz moje certyfikaty potwierdzające kwalifikacje w dziedzinie manicure i pedicure.
+        </p>
     </div>
+
+    <h2 class="text-2xl font-semibold text-apple-gray-800 mb-8 text-center sm:text-left">Moje Certyfikaty</h2>
+
+    @if(count($certificates) > 0)
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            @foreach ($certificates as $certificate)
+                <a href="{{ route('certificate.show', ['id' => $certificate['id']]) }}" class="group block bg-white rounded-2xl shadow-soft-md hover:shadow-soft-lg transition-all duration-300 ease-in-out overflow-hidden">
+                    <div class="aspect-w-4 aspect-h-3">
+                        <img src="{{ asset($certificate['thumbnail_image_path'] ?? $certificate['original_file_path']) }}" alt="Miniatura certyfikatu: {{ $certificate['title_pl'] }}" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-medium text-apple-gray-800 group-hover:text-apple-blue transition-colors duration-300 truncate">{{ $certificate['title_pl'] }}</h3>
+                        @isset($certificate['description_pl'])
+                        <p class="text-sm text-apple-gray-500 mt-1 line-clamp-2">{{ $certificate['description_pl'] }}</p>
+                        @endisset
+                    </div>
+                </a>
+            @endforeach
+        </div>
+    @else
+        <p class="text-apple-gray-600 text-center">Brak dostępnych certyfikatów.</p>
+    @endif
 @endsection
