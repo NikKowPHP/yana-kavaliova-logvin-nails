@@ -9,7 +9,7 @@ services:
       args:
         UID: "${UID:-1000}" # Pass host user ID for permissions
         GID: "${GID:-1000}" # Pass host group ID for permissions
-    container_name: huberman_app_php
+    container_name: jana-manicure-app 
     restart: unless-stopped
     tty: true
     environment:
@@ -25,7 +25,7 @@ services:
       # Persist bash history (optional)
       # - ./docker-data/bashhistory:/root/.bash_history_docker
     networks:
-      - huberman_app_network
+      - jana-manicure-app_network
     depends_on:
       - db
       - redis
@@ -33,7 +33,7 @@ services:
   # Web Server (Nginx)
   webserver:
     image: nginx:alpine
-    container_name: huberman_app_nginx
+    container_name: jana-manicure-app_nginx
     restart: unless-stopped
     tty: true
     ports:
@@ -42,31 +42,31 @@ services:
       - ./:/var/www/html
       - ./docker/nginx/conf.d/:/etc/nginx/conf.d/ # Mount custom Nginx config
     networks:
-      - huberman_app_network
+      - jana-manicure-app_network
     depends_on:
       - app
 
   # Database Server (PostgreSQL)
   db:
     image: postgres:17
-    container_name: huberman_app_db
+    container_name: jana-manicure-app_db
     restart: unless-stopped
     tty: true
     ports:
       - "${DB_PORT:-5432}:5432" # Expose DB port from .env or default 5432
     environment:
-      POSTGRES_DB: "${DB_DATABASE:-huberman_db}"
+      POSTGRES_DB: "${DB_DATABASE:-jana-manicure-app-db}"
       POSTGRES_USER: "${DB_USERNAME:-sail}" # Use Sail defaults or .env values
       POSTGRES_PASSWORD: "${DB_PASSWORD:-password}"
       POSTGRES_HOST_AUTH_METHOD: "trust" # For easy local connections, change if needed
     volumes:
-      - huberman_db_data:/var/lib/postgresql/data # Persistent DB data
+      - jana-manicure-app_db_data:/var/lib/postgresql/data # Persistent DB data
       # Optional: Mount init scripts
       # - ./docker/db/init:/docker-entrypoint-initdb.d
     networks:
-      - huberman_app_network
+      - jana-manicure-app_network
     healthcheck: # Basic healthcheck
-      test: ["CMD", "pg_isready", "-U", "${DB_USERNAME:-sail}", "-d", "${DB_DATABASE:-huberman_db}"]
+      test: ["CMD", "pg_isready", "-U", "${DB_USERNAME:-sail}", "-d", "${DB_DATABASE:-jana-manicure-app-db}"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -74,14 +74,14 @@ services:
   # Cache Server (Redis)
   redis:
     image: redis:7-alpine
-    container_name: huberman_app_redis
+    container_name: jana-manicure-app_redis
     restart: unless-stopped
     ports:
       - "${REDIS_PORT:-6379}:6379" # Expose Redis port from .env or default 6379
     volumes:
-      - huberman_redis_data:/data # Persistent Redis data
+      - jana-manicure-redis_data:/data # Persistent Redis data
     networks:
-      - huberman_app_network
+      - jana-manicure-app_network
     healthcheck: # Basic healthcheck
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
@@ -90,12 +90,12 @@ services:
 
 # Define Networks
 networks:
-  huberman_app_network:
+  jana-manicure-app_network:
     driver: bridge
 
 # Define Volumes
 volumes:
-  huberman_db_data:
+  jana-manicure-app_db_data:
     driver: local
-  huberman_redis_data:
+  jana-manicure-redis_data:
     driver: local
