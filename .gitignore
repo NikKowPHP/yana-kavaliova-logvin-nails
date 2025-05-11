@@ -21,3 +21,7 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+.DS_Store
+
+project_snapshot.txt
+repomix-output.md
