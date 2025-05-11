@@ -12,7 +12,7 @@
         @foreach ($certificates as $certificate)
             <div class="bg-gray-100 p-4 rounded shadow">
                 <a href="{{ route('certificate.show', ['id' => $certificate['id']]) }}">
-                    <img src="{{ asset($certificate['thumbnail_image_path']) }}" alt="{{ $certificate['title_pl'] }}" class="w-full h-48 object-cover rounded mb-2">
+                    <img src="{{ asset($certificate['original_file_path']) }}" alt="{{ $certificate['title_pl'] }}" class="w-full h-48 object-cover rounded mb-2">
                     <h3 class="text-lg font-semibold text-gray-800">{{ $certificate['title_pl'] }}</h3>
                 </a>
             </div>
