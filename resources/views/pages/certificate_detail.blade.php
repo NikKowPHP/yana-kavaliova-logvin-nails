@@ -3,6 +3,9 @@
 @section('title', $certificate['title_pl'] . ' - Yana Kavaliova-Logvin')
 
 @section('content')
+    <div class="mb-8">
+        <a href="{{ route('landing') }}" class="text-blue-600 hover:underline">&larr; Powrót do strony głównej</a>
+    </div>
     <h2 class="text-2xl font-bold mb-4">{{ $certificate['title_pl'] }}</h2>
 
     @isset($certificate['description_pl'])
@@ -23,9 +26,5 @@
                 <p class="text-gray-700">{{ $certificate['translation_pl'] }}</p>
             @endisset
         </div>
-    </div>
-
-    <div class="mt-8">
-        <a href="{{ route('landing') }}" class="text-blue-600 hover:underline">&larr; Powrót do strony głównej</a>
     </div>
 @endsection
